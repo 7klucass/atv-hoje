@@ -9,7 +9,7 @@ export function App() {
   }
 
   function alternarTexto() {
-    setMostrarTexto((prev) => !prev);
+    setMostrarTexto(!mostrarTexto);
   }
 
   return (
@@ -24,7 +24,6 @@ export function App() {
         {mostrarTexto ? "Esconder" : "Mostrar"}
       </button>
 
-      {}
       {mostrarTexto && (
         <p>Palmeiras maior do mundo</p>
       )}
