@@ -1,32 +1,28 @@
-import { useState } from "react";
+import {useState} from 'react'
 
 export function App() {
-  const [numero, setNumero] = useState(100);
-  const [mostrarTexto, setMostrarTexto] = useState(false);
+    const [numero, setNumero] = useState(100);
+    const[esconder, setMostrarEsconder] = useState(false);
 
-  function handleAumentar() {
-    setNumero(numero + 100);
-  }
+    function handleAumentar() {
+      setNumero(numero + 100)
+    }
 
-  function alternarTexto() {
-    setMostrarTexto(!mostrarTexto);
-  }
+    function handleMostrarEsconder() {
+      esconder === true ? setMostrarEsconder(false) : setMostrarEsconder(true);
+    }
 
-  return (
-    <section>
-      <h1>Número: {numero}</h1>
-
-      <div>
+    return (
+      <section className=''>
+        <h1>Aumentando 100</h1>
+        <p>Número = {numero}</p>
         <button onClick={handleAumentar}>Aumentar</button>
-      </div>
 
-      <button onClick={alternarTexto}>
-        {mostrarTexto ? "Esconder" : "Mostrar"}
-      </button>
-
-      {mostrarTexto && (
-        <p>Palmeiras maior do mundo</p>
-      )}
-    </section>
-  );
+        
+        <button onClick={handleMostrarEsconder}>{esconder === true ? 'Esconder' : 'Mostrar'}</button>
+        {esconder === true ? <p>Palmeiras maior time</p> : ""}
+      </section>
+      
+     
+    )
 }
